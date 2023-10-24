@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => Mywidget(),
         'login': (context) => const Myname(),
-        'onboard': (context) => const Onboard()
+        'onboard': (context) => const Onboard(),
       },
       // home: Mywidget(),
     );
@@ -65,9 +65,8 @@ class _MywidgetState extends State<Mywidget> {
 
   void toGo() async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
-    print("TOOOGO");
+
     var ans = pref.getBool('appUsed');
-    print(ans);
     if (ans == true) {
       Navigator.pushNamed(context, 'login');
     } else {
@@ -103,7 +102,7 @@ class _MywidgetState extends State<Mywidget> {
                     child: MyText(color: Colors.orange, text: 'click')),
                 ElevatedButton(
                     onPressed: () => {
-                          // MySecondModal().showMySpinal(context, 'Loading...'),
+                          MySecondModal().showMySpinal(context, 'Loading...'),
                         },
                     child: const MyText(color: Colors.orange, text: 'click me'))
               ],
