@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 import 'package:testing/Components/modals.dart';
 import 'package:testing/Components/mytext.dart';
+import 'package:testing/show_content.dart';
 
+import 'API/api.dart';
 import 'onboarding.dart';
 
 void main() {
@@ -39,8 +41,12 @@ class MyApp extends StatelessWidget {
       // home: const Onboard(),
       routes: {
         '/': (context) => Mywidget(),
-        'login': (context) => const Myname(),
+        // 'login': (context) => const Myname(),
         'onboard': (context) => const Onboard(),
+
+        'DetailPage': (context) => const DetailPage(
+              data: [],
+            ),
       },
       // home: Mywidget(),
     );
@@ -57,22 +63,22 @@ class Mywidget extends StatefulWidget {
 }
 
 class _MywidgetState extends State<Mywidget> {
-  @override
-  void initState() {
-    toGo();
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   toGo();
+  //   super.initState();
+  // }
 
-  void toGo() async {
-    final SharedPreferences pref = await SharedPreferences.getInstance();
+  // void toGo() async {
+  //   final SharedPreferences pref = await SharedPreferences.getInstance();
 
-    var ans = pref.getBool('appUsed');
-    if (ans == true) {
-      Navigator.pushNamed(context, 'login');
-    } else {
-      Navigator.pushNamed(context, 'onboard');
-    }
-  }
+  //   var ans = pref.getBool('appUsed');
+  //   if (ans == true) {
+  //     Navigator.pushNamed(context, '/');
+  //   } else {
+  //     Navigator.pushNamed(context, 'onboard');
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -94,12 +100,13 @@ class _MywidgetState extends State<Mywidget> {
             child: Row(
               children: [
                 ElevatedButton(
-                    onPressed: () => {
-                          Mymodal()
-                              .showMyModal(context, 'This is my demo modal')
-                        },
-                    // ignore: prefer_const_constructors
-                    child: MyText(color: Colors.orange, text: 'click')),
+                  onPressed: () async {
+                    await DemoApi.fetchData();
+                    Navigator.pushNamed(
+                        context, 'DetailPage'); // Use the route name
+                  },
+                  child: MyText(color: Colors.orange, text: 'click'),
+                ),
                 ElevatedButton(
                     onPressed: () => {
                           MySecondModal().showMySpinal(context, 'Loading...'),
@@ -107,6 +114,7 @@ class _MywidgetState extends State<Mywidget> {
                     child: const MyText(color: Colors.orange, text: 'click me'))
               ],
             ),
+
             //   child: Row(
             //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
             //     children: [
@@ -125,11 +133,12 @@ class _MywidgetState extends State<Mywidget> {
   }
 }
 
-class Myname extends StatelessWidget {
-  const Myname({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const SafeArea(child: Text("Login page"));
-  }
-}
+// class Myname extends StatelessWidget {
+//   const Myname({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return const SafeArea(child: Text("Login page"));
+//   }
+// }
