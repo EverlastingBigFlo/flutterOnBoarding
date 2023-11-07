@@ -1,7 +1,10 @@
 // ignore_for_file: avoid_print
 
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'error_modal.dart';
 
 // class DemoApi {
 //   static List<dynamic> dataList = []; // Class variable to store the data
@@ -25,19 +28,25 @@ import 'dart:convert';
 class DemoApi {
   static List dataList = [];
 
-  static Future<void> fetchData() async {
+  static Future<void> fetchData(BuildContext context) async {
     var client = http.Client();
     try {
       var response =
           await client.get(Uri.https('fakestoreapi.com', 'products'));
 
       var decodedResponse = jsonDecode(utf8.decode(response.bodyBytes));
-      // var uri = Uri.parse(decodedResponse['uri'] as String);
 
       DemoApi.dataList = List.from(decodedResponse);
-      // print('Fetched data: ${DemoApi.dataList}');
     } catch (e) {
       print('API Error: $e');
+      // Check if the error message contains the specific error string
+      if (e.toString().contains('No address associated with hostname')) {
+        ErrorModal().showMyModal(
+            context, 'Network Error: No address associated with hostname');
+      } else {
+        // Handle other errors as needed
+        print('Handling other errors...');
+      }
     } finally {
       client.close();
     }

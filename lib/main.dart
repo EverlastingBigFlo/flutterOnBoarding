@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
 import 'package:testing/Components/modals.dart';
 import 'package:testing/Components/mytext.dart';
-import 'package:testing/show_content.dart';
+import 'package:testing/API/show_content.dart';
 
 import 'API/api.dart';
 import 'onboarding.dart';
@@ -101,9 +101,9 @@ class _MywidgetState extends State<Mywidget> {
               children: [
                 ElevatedButton(
                   onPressed: () async {
-                    await DemoApi.fetchData();
                     Navigator.pushNamed(
                         context, 'DetailPage'); // Use the route name
+                    await DemoApi.fetchData(context);
                   },
                   child: MyText(color: Colors.orange, text: 'click'),
                 ),

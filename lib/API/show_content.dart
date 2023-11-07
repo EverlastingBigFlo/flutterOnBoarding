@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 
-import 'API/api.dart';
+import 'api.dart';
 
 class DetailPage extends StatefulWidget {
   final List data;
