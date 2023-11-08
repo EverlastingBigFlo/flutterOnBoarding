@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
 import 'package:testing/Components/modals.dart';
@@ -95,7 +97,6 @@ class _MywidgetState extends State<Mywidget> {
         backgroundColor: Colors.black12,
         body: Center(
           child: Padding(
-            // ignore: prefer_const_constructors
             padding: EdgeInsets.all(10),
             child: Row(
               children: [
@@ -103,6 +104,7 @@ class _MywidgetState extends State<Mywidget> {
                   onPressed: () async {
                     Navigator.pushNamed(
                         context, 'DetailPage'); // Use the route name
+
                     await DemoApi.fetchData(context);
                   },
                   child: MyText(color: Colors.orange, text: 'click'),
