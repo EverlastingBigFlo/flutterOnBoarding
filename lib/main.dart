@@ -65,6 +65,7 @@ class Mywidget extends StatefulWidget {
 }
 
 class _MywidgetState extends State<Mywidget> {
+  bool isFetchingData = false;
   // @override
   // void initState() {
   //   toGo();
@@ -104,6 +105,8 @@ class _MywidgetState extends State<Mywidget> {
                   onPressed: () async {
                     Navigator.pushNamed(
                         context, 'DetailPage'); // Use the route name
+                    //show my loader animation here
+                    MySecondModal().showMySpinal(context, 'Loading...');
 
                     await DemoApi.fetchData(context);
                   },
