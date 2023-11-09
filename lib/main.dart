@@ -66,6 +66,7 @@ class Mywidget extends StatefulWidget {
 
 class _MywidgetState extends State<Mywidget> {
   bool isFetchingData = false;
+
   // @override
   // void initState() {
   //   toGo();
@@ -103,12 +104,17 @@ class _MywidgetState extends State<Mywidget> {
               children: [
                 ElevatedButton(
                   onPressed: () async {
-                    Navigator.pushNamed(
-                        context, 'DetailPage'); // Use the route name
-                    //show my loader animation here
+                    // Show the loading modal
                     MySecondModal().showMySpinal(context, 'Loading...');
 
+                    // Fetch the data from the API
                     await DemoApi.fetchData(context);
+
+                    // Dismiss the loading modal after the API is done fetching
+                    MySecondModal().dismissMySpinal();
+
+                    // Navigate to the 'DetailPage'
+                    Navigator.pushNamed(context, 'DetailPage');
                   },
                   child: MyText(color: Colors.orange, text: 'click'),
                 ),

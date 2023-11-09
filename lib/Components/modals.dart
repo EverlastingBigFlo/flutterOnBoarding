@@ -57,14 +57,14 @@ class Mymodal {
 //   }
 // }
 
-
 class MySecondModal {
   Function? dismissFunction; // Function to dismiss the dialog
 
   showMySpinal(context, text) {
+    
     return showDialog<void>(
       context: context,
-      barrierDismissible: true,
+      barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
           content: Row(
@@ -96,7 +96,3 @@ class MySecondModal {
     }
   }
 }
-
-
-
-

@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:testing/API/product_detail.dart';
+import 'package:testing/Components/modals.dart';
 // import 'dart:convert';
 
 import 'api.dart';
@@ -15,6 +16,13 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  @override
+  void initState() {
+    super.initState();
+    // Dismiss the loading modal when the 'DetailPage' is created
+    MySecondModal().dismissMySpinal();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
