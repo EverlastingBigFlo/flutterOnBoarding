@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
         'onboard': (context) => const Onboard(),
 
         'DetailPage': (context) => const DetailPage(
-              data: [],
+            // data: [],
             ),
       },
       // home: Mywidget(),
@@ -104,12 +104,6 @@ class _MywidgetState extends State<Mywidget> {
               children: [
                 ElevatedButton(
                   onPressed: () async {
-                    // Show the loading modal
-                    MySecondModal().showMySpinal(context, 'Loading...');
-
-                    // Fetch the data from the API
-                    await DemoApi.fetchData(context);
-
                     // Dismiss the loading modal after the API is done fetching
                     MySecondModal().dismissMySpinal();
 

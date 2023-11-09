@@ -2,28 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:testing/Components/modals.dart';
 import 'dart:convert';
 
 import 'error_modal.dart';
-
-// class DemoApi {
-//   static List<dynamic> dataList = []; // Class variable to store the data
-
-//   static Future<void> fetchData() async {
-//     var url = Uri.https('fakestoreapi.com', 'products');
-//     // var url = Uri.https('jsonplaceholder.typicode.com', 'posts');
-//     var response = await http.get(url);
-
-//     if (response.statusCode == 200) {
-//       // If the request is successful, parse the JSON response and store it in the list
-
-//       dataList = jsonDecode(response.body);
-//     } else {
-//       // Handle the case when the request is not successful
-//       print('Failed to load data');
-//     }
-//   }
-// }
 
 class DemoApi {
   static List dataList = [];
@@ -31,6 +13,9 @@ class DemoApi {
   static Future<void> fetchData(BuildContext context) async {
     var client = http.Client();
     try {
+      // Show the loading modal
+      MySecondModal().showMySpinal(context, 'Loading...');
+
       var response =
           await client.get(Uri.https('fakestoreapi.com', 'products'));
 
@@ -48,6 +33,8 @@ class DemoApi {
         print('Handling other errors...');
       }
     } finally {
+      // Dismiss the loading modal after the API is done fetching
+      MySecondModal().dismissMySpinal();
       client.close();
     }
   }
