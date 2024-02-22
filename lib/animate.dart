@@ -35,9 +35,10 @@ class _MyAnimatedWidgetState extends State<MyAnimatedWidget>
       child: AnimatedBuilder(
         animation: _animation,
         builder: (context, child) {
-          return Transform.flip(
-            flipX: true,
-            origin: Offset.infinite,
+          return Transform.scale(
+            scale: _animation.value,
+            // flipX: true,
+            origin: Offset(0.5, 0.5),
             child: Container(
               width: 50,
               height: 50,
