@@ -36,9 +36,9 @@ class _MyAnimatedWidgetState extends State<MyAnimatedWidget>
           return Transform.scale(
             scale: _animation.value,
             child: Container(
-              width: 100,
-              height: 100,
-              color: Colors.blue,
+              width: 50,
+              height: 50,
+              color: Colors.red,
             ),
           );
         },
