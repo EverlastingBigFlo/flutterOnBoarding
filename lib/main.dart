@@ -46,9 +46,7 @@ class MyApp extends StatelessWidget {
         // 'login': (context) => const Myname(),
         'onboard': (context) => const Onboard(),
 
-        'DetailPage': (context) => const DetailPage(
-            // data: [],
-            ),
+        'DetailPage': (context) => const DetailPage(),
       },
       // home: Mywidget(),
     );

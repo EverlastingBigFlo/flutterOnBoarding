@@ -61,7 +61,6 @@ class MySecondModal {
   Function? dismissFunction; // Function to dismiss the dialog
 
   showMySpinal(context, text) {
-    
     return showDialog<void>(
       context: context,
       barrierDismissible: false,
@@ -85,6 +84,7 @@ class MySecondModal {
       // Set the dismissFunction when the dialog is shown
       dismissFunction = () {
         Navigator.of(context).pop();
+       dismissFunction = null;
       };
     });
   }

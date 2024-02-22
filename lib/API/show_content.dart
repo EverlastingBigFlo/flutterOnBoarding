@@ -23,7 +23,6 @@ class _DetailPageState extends State<DetailPage> {
     // Use Future.delayed to schedule code to run after initState completes
     Future.delayed(Duration.zero, () {
       // Show the loading modal
-      MySecondModal().showMySpinal(context, 'Loading...');
       fetchData(context);
     });
   }
@@ -38,13 +37,12 @@ class _DetailPageState extends State<DetailPage> {
         isLoading = false;
       });
     } catch (e) {
-      print('Error fetching data: $e');
+      // print('Error fetching data: $e');
     }
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(

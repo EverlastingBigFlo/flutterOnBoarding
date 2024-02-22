@@ -12,10 +12,10 @@ class DemoApi {
 
   static Future<void> fetchData(BuildContext context) async {
     var client = http.Client();
-    try {
-      // Show the loading modal
-      MySecondModal().showMySpinal(context, 'Loading...');
 
+    // MySecondModal().showMySpinal(context, 'Loading...');
+
+    try {
       var response =
           await client.get(Uri.https('fakestoreapi.com', 'products'));
 
@@ -33,8 +33,8 @@ class DemoApi {
         print('Handling other errors...');
       }
     } finally {
-      // Dismiss the loading modal after the API is done fetching
-      MySecondModal().dismissMySpinal();
+      // MySecondModal().dismissMySpinal();
+
       client.close();
     }
   }
