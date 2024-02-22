@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:testing/Components/modals.dart';
 import 'package:testing/Components/mytext.dart';
 import 'package:testing/API/show_content.dart';
+import 'package:testing/animate.dart';
 
 import 'API/api.dart';
 import 'onboarding.dart';
@@ -42,7 +43,9 @@ class MyApp extends StatelessWidget {
       ),
       // home: const Onboard(),
       routes: {
-        '/': (context) => Mywidget(),
+        // '/': (context) => Mywidget(),
+        '/': (context) => MyAnimatedWidget(),
+
         // 'login': (context) => const Myname(),
         'onboard': (context) => const Onboard(),
 
@@ -95,7 +98,6 @@ class _MywidgetState extends State<Mywidget> {
           backgroundColor: Colors.amber[900],
         ),
         backgroundColor: Colors.black12,
-
         body: Center(
           child: Padding(
             padding: EdgeInsets.all(10),
@@ -134,7 +136,6 @@ class _MywidgetState extends State<Mywidget> {
             // ),
           ),
         ));
-  
   }
 }
 
