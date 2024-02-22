@@ -33,12 +33,12 @@ class _MyAnimatedWidgetState extends State<MyAnimatedWidget>
       child: AnimatedBuilder(
         animation: _animation,
         builder: (context, child) {
-          return Transform.scale(
-            scale: _animation.value,
+          return Transform.flip(
+            // scale: _animation.value,
             child: Container(
               width: 50,
               height: 50,
-              color: Colors.red,
+              color: Colors.blue,
             ),
           );
         },
@@ -53,11 +53,11 @@ class _MyAnimatedWidgetState extends State<MyAnimatedWidget>
   }
 }
 
-void main() {
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: Text('Animated Widget')),
-      body: Center(child: MyAnimatedWidget()),
-    ),
-  ));
-}
+// void main() {
+//   runApp(MaterialApp(
+//     home: Scaffold(
+//       appBar: AppBar(title: Text('Animated Widget')),
+//       body: Center(child: MyAnimatedWidget()),
+//     ),
+//   ));
+// }
