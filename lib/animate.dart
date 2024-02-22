@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -35,6 +37,7 @@ class _MyAnimatedWidgetState extends State<MyAnimatedWidget>
         builder: (context, child) {
           return Transform.flip(
             flipX: true,
+            origin: Offset.infinite,
             child: Container(
               width: 50,
               height: 50,
