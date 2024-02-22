@@ -95,6 +95,7 @@ class _MywidgetState extends State<Mywidget> {
           backgroundColor: Colors.amber[900],
         ),
         backgroundColor: Colors.black12,
+
         body: Center(
           child: Padding(
             padding: EdgeInsets.all(10),
@@ -133,6 +134,7 @@ class _MywidgetState extends State<Mywidget> {
             // ),
           ),
         ));
+  
   }
 }
 
